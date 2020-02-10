@@ -58,10 +58,19 @@ Fetch all available repos to list provided at .env file
 ./sync.sh --config-file FULL_PATH/sync_config.env --fetch-repos
 ```
 
-Import all available repos to folder having .env file
+Import all available repos locally having .env file
 
 ```shell script
 ./sync.sh --config-file FULL_PATH/sync_config.env --import-repos
+```
+
+Regular backing up all available repos locally having .env file and cronjob
+
+```shell script
+crontab -e
+ 
+# >>>
+0 0 * * * ~/sync.sh --config-file FULL_PATH/sync_config.env --import-repos
 ```
 
 Export all available repos to storage repo provided at .env file or passing by arg
